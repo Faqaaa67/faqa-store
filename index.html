@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faqaaa Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+	  *{
+		  font-family: 'Poppins', sans-serif;
+	  }
     * {
       margin: 0;
       padding: 0;
@@ -33,11 +37,13 @@
     }
 
     .main-title {
-      font-size: 36px;
-	  text-align: center;
+	  font-size: 32px;
+	  font-weight: 600;
 	  color: white;
-      text-shadow: 0 0 15px #38bdf8, 0 0 30px #0ea5e9;
-    }
+	  text-align: center;
+	  text-shadow: 0 0 15px #38bdf8;
+	  margin-bottom: 10px;
+}
 
     @keyframes glow {
       from {
@@ -393,12 +399,10 @@ footer {
 <body>
   <div class="container">
 	  <div class="version-box">
-		  <h1 class="main-title">Faqa's Website</h1>
     <div class="card">
-      <div class="title">Jumlah Pembeli</div>
-      <div class="buyer-count" id="buyerCount">196,616</div>
-      <div class="subtitle">Klik dibawah untuk order.</div>
-    </div>
+ 	 <div class="main-title">Faqa's Website</div>
+ 	 <div class="subtitle">Klik dibawah untuk order.</div>
+	</div>
 
     <button class="btn" onclick="toggleMentahan()">📁 SALURAN MENTAHAN FF</button>
 
