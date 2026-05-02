@@ -7,10 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-	  *{
-		  font-family: 'Poppins', sans-serif;
+	 html, body, *{
+		  font-family: 'Poppins', sans-serif; !important
 	  }
-    * {
+    {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -177,26 +177,6 @@
 
     .details b {
       color: white;
-    }
-
-    .admin-only-btn {
-      display: block;
-      margin: 25px auto 0;
-      padding: 8px 14px;
-      font-size: 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(54, 169, 255, 0.6);
-      background: rgba(255, 255, 255, 0.08);
-      color: #9fd2ff;
-      cursor: pointer;
-    }
-
-    .admin-box {
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px dashed rgba(255, 255, 255, 0.25);
     }
 
     input {
@@ -403,6 +383,7 @@ footer {
  	 <div class="main-title">Faqa's Website</div>
  	 <div class="subtitle">Klik dibawah untuk order.</div>
 	</div>
+	  </div>
 
     <button class="btn" onclick="toggleMentahan()">📁 SALURAN MENTAHAN FF</button>
 
@@ -448,63 +429,10 @@ footer {
 
     <button class="admin-only-btn" onclick="toggleAdmin()">Admin Only</button>
 
-    <div class="admin-box hidden" id="adminBox">
-      <p><b>Admin Update Jumlah Pembeli</b></p>
-      <input type="password" id="adminPass" placeholder="Masukkan password admin">
-      <input type="number" id="newCount" placeholder="Masukkan jumlah pembeli baru">
-      <button class="btn small-btn" onclick="updateCount()">Update Jumlah</button>
-    </div>
-
     <footer>
       © 2026 Faqaaa Store
     </footer>
 
   </div>
-
-  <script>
-    const PASSWORD = "admin123";
-
-    let savedCount = localStorage.getItem("buyerCount");
-
-    if (savedCount) {
-      document.getElementById("buyerCount").innerText = Number(savedCount).toLocaleString();
-    }
-
-    function toggleMentahan() {
-      document.getElementById("mentahanOptions").classList.toggle("hidden");
-    }
-
-    function toggleDM() {
-      document.getElementById("dmOptions").classList.toggle("hidden");
-    }
-
-    function toggleApps() {
-      document.getElementById("appsOptions").classList.toggle("hidden");
-    }
-
-    function toggleAdmin() {
-      document.getElementById("adminBox").classList.toggle("hidden");
-    }
-
-    function updateCount() {
-      const pass = document.getElementById("adminPass").value;
-      const count = document.getElementById("newCount").value;
-
-      if (pass !== PASSWORD) {
-        alert("Password salah!");
-        return;
-      }
-
-      if (!count) {
-        alert("Masukkan jumlah pembeli dulu.");
-        return;
-      }
-
-      localStorage.setItem("buyerCount", count);
-      document.getElementById("buyerCount").innerText = Number(count).toLocaleString();
-
-      alert("Jumlah pembeli berjaya dikemaskini!");
-    }
-  </script>
 </body>
 </html>
