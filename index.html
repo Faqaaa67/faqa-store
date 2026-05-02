@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faqaaa Store</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #123b63, #071727 70%);
+      color: white;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .info-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .main-title {
+      font-size: 36px;
+	  text-align: center;
+	  color: white;
+      text-shadow: 0 0 15px #38bdf8, 0 0 30px #0ea5e9;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #38bdf8;
+      }
+      to {
+        text-shadow: 0 0 25px #38bdf8, 0 0 45px #0ea5e9;
+      }
+    }
+
+    .info-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .badge {
+      background: rgba(0, 200, 255, 0.2);
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: bold;
+      border: 1px solid rgba(0, 200, 255, 0.5);
+      color: #d7f6ff;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+    }
+
+    .online-dot {
+      color: #22c55e;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .latest-title {
+      font-size: 38px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 15px #38bdf8;
+    }
+
+    .latest-title span {
+      color: #38bdf8;
+    }
+
+    .card {
+      background: rgba(20, 70, 115, 0.65);
+      border: 1px solid rgba(54, 169, 255, 0.45);
+      border-radius: 25px;
+      padding: 35px 20px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(33, 150, 243, 0.45);
+      margin-bottom: 25px;
+    }
+
+    .title {
+      font-size: 18px;
+      letter-spacing: 3px;
+      color: #b9ddff;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .buyer-count {
+      font-size: 60px;
+      font-weight: bold;
+      color: #40e0ff;
+      text-shadow: 0 0 18px #2196f3;
+    }
+
+    .subtitle {
+      margin-top: 15px;
+      color: #c9dff2;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      color: white;
+      padding: 22px;
+      margin: 16px 0;
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(90deg, #38bdf8, #0d47a1);
+      box-shadow: 0 0 15px rgba(33, 150, 243, 0.35);
+      transition: 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(33, 150, 243, 0.75);
+    }
+
+    .btn-outline {
+      background: rgba(38, 104, 160, 0.45);
+      border: 2px solid rgba(54, 169, 255, 0.65);
+    }
+
+    .section-title {
+      text-align: center;
+      color: #9fd2ff;
+      letter-spacing: 4px;
+      margin: 30px 0 15px;
+      font-size: 16px;
+    }
+
+    .details {
+      background: rgba(20, 70, 115, 0.65);
+      border: 1px solid rgba(54, 169, 255, 0.45);
+      border-radius: 15px;
+      padding: 22px;
+      box-shadow: 0 0 15px rgba(33, 150, 243, 0.2);
+      line-height: 1.8;
+      color: #d9efff;
+      margin-bottom: 15px;
+    }
+
+    .details b {
+      color: white;
+    }
+
+    .admin-only-btn {
+      display: block;
+      margin: 25px auto 0;
+      padding: 8px 14px;
+      font-size: 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(54, 169, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+      color: #9fd2ff;
+      cursor: pointer;
+    }
+
+    .admin-box {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px dashed rgba(255, 255, 255, 0.25);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .small-btn {
+      padding: 14px;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      color: #8fb7d8;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .main-title {
+        font-size: 27px;
+      }
+
+      .latest-title {
+        font-size: 31px;
+      }
+
+      .buyer-count {
+        font-size: 45px;
+      }
+
+      .btn {
+        font-size: 15px;
+        padding: 18px;
+      }
+		
+		.version-box {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+		
+		.version-box h1 {
+			font-size: 36px;
+			color: white;
+			text-shadow: 0 0 15px #38bdf8;
+		}
+		
+		.version-box span {
+		color: #38bdf8;
+		}
+		
+		.version-box {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 30px 0 30px 0;
+		}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+	  <div class="version-box">
+		  <h1 class="main-title">Faqa's Website</h1>
+    <div class="card">
+      <div class="title">Jumlah Pembeli</div>
+      <div class="buyer-count" id="buyerCount">196,616</div>
+      <div class="subtitle">Klik dibawah untuk order.</div>
+    </div>
+
+    <button class="btn" onclick="toggleMentahan()">📁 SALURAN MENTAHAN FF</button>
+
+    <div id="mentahanOptions" class="hidden">
+      <a class="btn btn-outline" href="https://t.me/mentahanfaqa" target="_blank">📢 Telegram</a>
+      <a class="btn btn-outline" href="https://whatsapp.com/channel/0029Vb6m41W6RGJ9deBug805" target="_blank">💬 WhatsApp 1</a>
+      <a class="btn btn-outline" href="https://whatsapp.com/channel/0029VbAmA9KC1FuEG53jQV3X" target="_blank">💬 WhatsApp 2</a>
+    </div>
+
+    <button class="btn" onclick="toggleDM()">🔑 BUY DM FREEFIRE</button>
+
+    <div id="dmOptions" class="hidden">
+      <div class="details">
+        <p><b>List DM FreeFire</b></p>
+        <p>💎 25 Diamond – RM1.20</p>
+        <p>💎 100 Diamond – RM4.00</p>
+        <p>💎 310 Diamond – RM12.00</p>
+        <p>💎 520 Diamond – RM20.00</p>
+		<p> Selebihnya boleh chat admin</p>
+      </div>
+
+      <a class="btn btn-outline" href="https://wa.me/60139607696?text=Hi%2C%20nak%20Buy%20DM%20FF" target="_blank">
+        💬 Order DM melalui WhatsApp
+      </a>
+    </div>
+
+    <button class="btn" onclick="toggleApps()">📱 ORDER APPS PREMIUM (WHATSAPP)</button>
+
+    <div id="appsOptions" class="hidden">
+      <a class="btn btn-outline" href="https://wa.me/60139607696?text=Hi%2C%20nak%20order%20AM%20Prem" target="_blank">✨ AM Prem</a>
+      <a class="btn btn-outline" href="https://wa.me/60139607696?text=Hi%2C%20nak%20order%20CapCut%20Pro" target="_blank">🎬 CapCut</a>
+      <a class="btn btn-outline" href="https://wa.me/60139607696?text=Hi%2C%20nak%20order%20PicsArt%20Pro" target="_blank">🎨 PicsArt</a>
+
+      <div class="section-title">Premium Details</div>
+
+      <div class="details">
+        <p><b>Details</b></p>
+        <p>Alight Motion Premium Private : 10 - 11 Bulan</p>
+        <p>CapCut Pro Private & Sharing : 25 - 28 Days</p>
+        <p>PicsArt Pro Sharing Only : 25 - 28 Days</p>
+      </div>
+    </div>
+
+    <button class="admin-only-btn" onclick="toggleAdmin()">Admin Only</button>
+
+    <div class="admin-box hidden" id="adminBox">
+      <p><b>Admin Update Jumlah Pembeli</b></p>
+      <input type="password" id="adminPass" placeholder="Masukkan password admin">
+      <input type="number" id="newCount" placeholder="Masukkan jumlah pembeli baru">
+      <button class="btn small-btn" onclick="updateCount()">Update Jumlah</button>
+    </div>
+
+    <footer>
+      © 2026 Faqaaa Store
+    </footer>
+
+  </div>
+
+  <script>
+    const PASSWORD = "admin123";
+
+    let savedCount = localStorage.getItem("buyerCount");
+
+    if (savedCount) {
+      document.getElementById("buyerCount").innerText = Number(savedCount).toLocaleString();
+    }
+
+    function toggleMentahan() {
+      document.getElementById("mentahanOptions").classList.toggle("hidden");
+    }
+
+    function toggleDM() {
+      document.getElementById("dmOptions").classList.toggle("hidden");
+    }
+
+    function toggleApps() {
+      document.getElementById("appsOptions").classList.toggle("hidden");
+    }
+
+    function toggleAdmin() {
+      document.getElementById("adminBox").classList.toggle("hidden");
+    }
+
+    function updateCount() {
+      const pass = document.getElementById("adminPass").value;
+      const count = document.getElementById("newCount").value;
+
+      if (pass !== PASSWORD) {
+        alert("Password salah!");
+        return;
+      }
+
+      if (!count) {
+        alert("Masukkan jumlah pembeli dulu.");
+        return;
+      }
+
+      localStorage.setItem("buyerCount", count);
+      document.getElementById("buyerCount").innerText = Number(count).toLocaleString();
+
+      alert("Jumlah pembeli berjaya dikemaskini!");
+    }
+  </script>
+</body>
+</html>
